@@ -27,4 +27,4 @@ def get_token():
     return IAM_token.json()
 
 
-print(get_token())
+

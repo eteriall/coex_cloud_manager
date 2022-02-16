@@ -82,11 +82,3 @@ class YandexCloudApi:
             data = filter(lambda instance: eval(rule, {'instance': instance}), data)
         return tuple(data)
 
-
-yc = YandexCloudApi()  # Создания экземпляра API
-
-all_VMs = yc.get_instances()  # Получение списка всех виртуальных машин
-
-for vm in all_VMs:
-    yc.start_instance(vm['id'])  # Запуск виртуальной машины
-
