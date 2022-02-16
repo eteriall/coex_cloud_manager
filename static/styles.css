@@ -1,0 +1,150 @@
+body {
+    font-family: 'Inter', sans-serif;
+    color: #282828;
+    margin: 0px;
+    overflow:hidden;
+}
+
+
+.left-side {
+    width: 40vw;
+    height: 100vh;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.left-side h1{
+    font-weight: 600;
+}
+
+
+
+.form{
+    margin-top: 33vh;
+    margin-left: 3vw;
+    height: 400px;
+    width: 405px;
+}
+
+.form h2, h3, h4, p, a{
+    color: #4B5563;
+    text-decoration:none;
+}
+
+input{
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+    border: 2px solid #F2F2F2;
+    font-size: 16px;
+    padding-left: 12px;
+    background-color: #F3F4F6;
+    color: #575757;
+    text-transform:uppercase;
+    margin-bottom: 20px;
+}
+
+.active-btn {
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+    font-size: 16px;
+    padding-left: 12px;
+    background-color: #4F46E5;
+    color: white;
+    border: none;
+
+    transition-property: background-color;
+    transition-duration: 0.2s;
+}
+
+.active-btn:hover {
+    cursor: pointer;
+    background-color: #5D54FA;
+}
+
+.active-btn:active {
+    cursor: pointer;
+    background-color: #2D23E2;
+}
+
+.inactive-btn {
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+    font-size: 16px;
+    padding-left: 12px;
+    background-color: #C4C4C4;
+    color: white;
+    border: none;
+
+    pointer-events: none;
+    transition-property: background-color;
+    transition-duration: 0.2s;
+}
+
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #939393;
+  opacity: 1; /* Firefox */
+}
+
+input:focus {
+    text-align: center !important;
+
+}
+
+.error{
+color: #DC0D0D;
+}
+
+.message{
+color: #F1C84C;
+}
+
+.right-side {
+    position: absolute;
+    left: 40%;
+    top: 0;
+    width: 60vw;
+    height: 105vh;
+    background-image: url('/static/auth-bg.svg');
+}
+
+.apps-svg{
+    position: absolute;
+    left: 0;
+    top: 25vh;
+    width:100%
+}
+
+.error-field {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}

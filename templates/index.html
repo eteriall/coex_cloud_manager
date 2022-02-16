@@ -1,0 +1,70 @@
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:wght@500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/button.css">
+    <title>Большие вызовы</title>
+</head>
+<body>
+
+<div class="left-side">
+    <div class="form">
+        <h1>«Большие вызовы» 2022</h1>
+
+        <p>Код доступа для входа в виртуальную среду находится в пункте 4.2 описания работы.</p>
+
+        <form action="/" method="post" autocomplete="off">
+            <div style="height: px; width:100%"></div>
+
+            {% if error %}
+            <p class="error">Неверный код - {{error}}</p>
+            <input placeholder="000000" maxlength="6" class="error-field" name="code" id="code-input">
+            {% else %}
+
+            {% if message %}
+            <p class="message"><b>{{message}}</b></p>
+            {% else %}
+            <p><b>Код доступа</b></p>
+            {% endif %}
+
+            <input placeholder="000000" maxlength="6" name="code" id="code-input">
+
+            {% endif %}
+            <button class="inactive-btn" type="submit" id="connect-btn">Подключиться</button>
+        </form>
+
+        <p><a href="https://github.com/eteriall/clover_cloud">Ссылка на репозиторий проекта</a></p>
+
+    </div>
+</div>
+
+<div class="right-side">
+    <img class="apps-svg" src="/static/auth-apps.svg">
+</div>
+
+</body>
+
+<script>
+
+const code_field = document.getElementById('code-input');
+
+document.addEventListener('keyup', checkField);
+
+function checkField(e) {
+  if (code_field.value.length != 6){
+    document.getElementById('connect-btn').classList.add('inactive-btn');
+    document.getElementById('connect-btn').classList.remove('active-btn');
+  } else {
+    document.getElementById('connect-btn').classList.add('active-btn');
+    document.getElementById('connect-btn').classList.remove('inactive-btn');
+  }
+}
+
+
+
+
+</script>
+</html>
