@@ -1,3 +1,4 @@
+import json
 import os
 
 from pymodm import connect
@@ -20,17 +21,21 @@ yc_api = YandexCloudApi()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    subdomain = str(request.url.split('/')[2].split('.')[0])
+    data = os.environ.get(subdomain,
+                          '{"title": "Подключение к CloverOs", "about": "Введите код, который вы получили от разработчиков проекта."}')
+    data = json.loads(data)
     if request.method == 'GET':
-        return render_template('index.html')
+        return render_template('index.html', data=data)
     else:
         code = request.form.get('code').upper()
         try:
             server = dict(Server.objects.values().get({'access_code': code}))
         except Exception as e:
-            return render_template('index.html', error='сервер не найден')
+            return render_template('index.html', error='сервер не найден', data=data)
 
         if not server:
-            return render_template('index.html', error='сервер не найден')
+            return render_template('index.html', error='сервер не найден', data=data)
         else:
             instance_id = server.get('yc_id')
             status = yc_api.get_status(instance_id)
@@ -39,12 +44,12 @@ def index():
             elif status == 'STARTING':
                 return render_template('index.html',
                                        message='Сервер запускается, обычно, это занимает не более 5 минут. '
-                                               'Повторите подключение после запуска сервера.')
+                                               'Повторите подключение после запуска сервера.', data=data)
             else:
                 yc_api.start_instance(instance_id)
                 return render_template('index.html',
                                        message='Сервер был выключен. Запускаем сервер... '
-                                               'Повторите подключение через минуту.')
+                                               'Повторите подключение через минуту.', data=data)
 
 
 def main():

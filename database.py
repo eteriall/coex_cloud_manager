@@ -19,7 +19,6 @@ class User(MongoModel):
     first_name = fields.CharField()
     last_name = fields.CharField()
 
-
     class Meta:
         write_concern = WriteConcern(j=True)
         connection_alias = 'coex-cloud'
