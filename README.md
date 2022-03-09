@@ -1,6 +1,6 @@
 # COEX-Cloud Route-Manager & Authorization app
 
-## http://sirius.coex-cloud.ru
+## http://alpha.coex-cloud.ru
 
 Приложение-маршрутизатор сервиса входит в архитектуру проекта COEX-Cloud.
 
