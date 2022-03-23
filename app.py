@@ -31,6 +31,7 @@ def index():
         code = request.form.get('code').upper()
         try:
             server = dict(Server.objects.values().get({'access_code': code}))
+            print(server['ip'])
         except Exception as e:
             return render_template('index.html', error='сервер не найден', data=data)
 
