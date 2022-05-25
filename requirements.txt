@@ -13,7 +13,7 @@ Jinja2==3.0.3
 MarkupSafe==2.0.1
 MongoAlchemy==0.19
 pycparser==2.21
-PyJWT==2.3.0
+PyJWT==2.4.0
 pymodm==0.4.3
 pymongo==3.12.3
 requests==2.27.1
